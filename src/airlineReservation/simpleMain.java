@@ -1,9 +1,13 @@
 package airlineReservation;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class simpleMain {
+	
+	//public static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,6 +30,7 @@ public class simpleMain {
 			switch(employeeChoice) {
 			case 1:
 				System.out.println("Here we could call a function to take in customer info to sell the ticket\n");
+				sellTickets();
 				break;
 			case 2:
 				System.out.println("Here we would simply print out the full stack\n");
@@ -60,6 +65,30 @@ public class simpleMain {
 			
 		}
 		
+		
 	}
+	
+	
+	public static void sellTickets() {
+		System.out.println("Emplyee #6932-C please enter price, ticket number, origin, destination, customer ID, roundtrip, departure date, departure time, arrival date, and arrival time.");
+		System.out.println("Please do not mess up.");
+		
+		System.out.println("Please enter everything in one line, seperated by commas\n");
+		String[] inputs;
+		Scanner scan = new Scanner(System.in);
+		inputs = scan.nextLine().trim().split(",");
+		System.out.println("\nYou entered: ");
+		for(int i = 0; i < inputs.length; i++) {
+			inputs[i] = inputs[i].trim();
+			System.out.print(inputs[i] + " ~ ");
+		}
+		System.out.println("\n");
+		//baseTicket customerTicket = new baseTicket(Double.parseDouble(inputs[0]), Integer.parseInt(inputs[1]), inputs[2], inputs[3], inputs[4], true, Long.parseLong(inputs[6]), Long.parseLong(inputs[7]), Long.parseLong(inputs[8]), Long.parseLong(inputs[9]);
+		// we kind of need the date and time information to come in as a long, but then that means we would have to generate it as a long
+		// which would be kind of complicated
+		// need to rethink this
+		
+	}
+	
 	
 }
