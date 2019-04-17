@@ -1,7 +1,5 @@
 package airlineReservation;
 
-import java.sql.Date;
-import java.sql.Time;
 
 public class baseTicket {
 	
@@ -10,28 +8,17 @@ public class baseTicket {
 	private String origin;
 	private String destination;
 	private String customerID;
-	private boolean roundTrip;
-	private Date departureDate;
-	private Time departureTime;
-	private Date arrivalDate;
-	private Time arrivalTime;
 	
 	
 	
 	public baseTicket(double price, int ticketNumber, String origin, String destination,
-			String customerID, boolean roundTrip, Date departureDate, Time departureTime, Date arrivalDate,
-			Time arrivalTime) {
+			String customerID) {
 		
 		this.price = price;
 		this.ticketNumber = ticketNumber;
 		this.origin = origin;
 		this.destination = destination;
 		this.customerID = customerID;
-		this.roundTrip = roundTrip;
-		this.departureDate = departureDate;
-		this.departureTime = departureTime;
-		this.arrivalDate = arrivalDate;
-		this.arrivalTime = arrivalTime;
 	}
 	public double getPrice() {
 		return price;
@@ -63,36 +50,7 @@ public class baseTicket {
 	public void setCustomerID(String customerID) {
 		this.customerID = customerID;
 	}
-	public boolean isRoundTrip() {
-		return roundTrip;
-	}
-	public void setRoundTrip(boolean roundTrip) {
-		this.roundTrip = roundTrip;
-	}
-	public Date getDepartureDate() {
-		return departureDate;
-	}
-	public void setDepartureDate(Date departureDate) {
-		this.departureDate = departureDate;
-	}
-	public Time getDepartureTime() {
-		return departureTime;
-	}
-	public void setDepartureTime(Time departureTime) {
-		this.departureTime = departureTime;
-	}
-	public Date getArrivalDate() {
-		return arrivalDate;
-	}
-	public void setArrivalDate(Date arrivalDate) {
-		this.arrivalDate = arrivalDate;
-	}
-	public Time getArrivalTime() {
-		return arrivalTime;
-	}
-	public void setArrivalTime(Time arrivalTime) {
-		this.arrivalTime = arrivalTime;
-	}
+	
 	
 	
 	

@@ -1,9 +1,10 @@
 package airlineReservation;
 
-import java.sql.Date;
-import java.sql.Time;
 
 public class firstClassTicket extends businessClassTicket {
+	
+	
+	//WE ARE NOT USING THIS CLASS, IGNORE ALL OF IT
 	
 	private boolean fineDining;
 	private boolean prioritySeating;
@@ -11,12 +12,10 @@ public class firstClassTicket extends businessClassTicket {
 	// what else can we add here??
 	// need ideas...
 	
+	
 	public firstClassTicket(double price, int ticketNumber, String origin, String destination, String customerID,
-			boolean roundTrip, Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime,
-			int baggageNum, float frequentFlyerMiles, boolean openBar, boolean moreLegRoom, boolean fineDining,
-			boolean prioritySeating) {
-		super(price, ticketNumber, origin, destination, customerID, roundTrip, departureDate, departureTime,
-				arrivalDate, arrivalTime, baggageNum, frequentFlyerMiles, openBar, moreLegRoom);
+			int baggageNum, float frequentFlyerMiles, boolean fineDining, boolean prioritySeating) {
+		super(price, ticketNumber, origin, destination, customerID, baggageNum, frequentFlyerMiles);
 		this.fineDining = fineDining;
 		this.prioritySeating = prioritySeating;
 	}
@@ -24,6 +23,7 @@ public class firstClassTicket extends businessClassTicket {
 	public boolean isFineDining() {
 		return fineDining;
 	}
+	
 	public void setFineDining(boolean fineDining) {
 		this.fineDining = fineDining;
 	}
