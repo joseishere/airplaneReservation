@@ -16,6 +16,10 @@ public class simpleMain {
 		System.out.println("Please remember to be kind and sweet to all of the customers today!\n");
 		System.out.println("\t\tMessage from: John Dawn - CEO of Starship Airlines");
 		
+		
+		LinkedList<baseTicket> ourList = new LinkedList<baseTicket>();
+		
+		
 		int option = 0;
 		while(option == 0) {
 			System.out.println("What would you like to do employee #6932-C ?");
@@ -30,13 +34,21 @@ public class simpleMain {
 			switch(employeeChoice) {
 			case 1:
 				System.out.println("Here we could call a function to take in customer info to sell the ticket\n");
-				sellTickets();
+				
+				while(sellTickets() != null) {
+					baseTicket tic = sellTickets();
+					ourList.add(tic);
+					
+				}
 				break;
 			case 2:
 				System.out.println("Here we would simply print out the full stack\n");
 				break;
 			case 3:
 				System.out.println("Here we would print out the linkedlists that will hold our ticket objects\n");
+				for(int i = 0; i < ourList.size(); i++) {
+					System.out.println(ourList.get(i).toString());
+				}
 				break;
 			case 4:
 				System.out.println("Here we can import time and have a function that will pop the stack and print out that pop every 2 seconds.");
@@ -69,20 +81,56 @@ public class simpleMain {
 	}
 	
 	
-	public static void sellTickets() {
-		System.out.println("Emplyee #6932-C please enter price, ticket number, origin, destination, customer ID, roundtrip, departure date, departure time, arrival date, and arrival time.");
-		System.out.println("Please do not mess up.");
-		
-		System.out.println("Please enter everything in one line, seperated by commas\n");
-		String[] inputs;
+	public static baseTicket sellTickets() {
+		System.out.println("Employee #6932-C, is this a coach or business class ticket?");
+		System.out.println("Enter 1 for coach, and 2 for business class");
 		Scanner scan = new Scanner(System.in);
-		inputs = scan.nextLine().trim().split(",");
-		System.out.println("\nYou entered: ");
-		for(int i = 0; i < inputs.length; i++) {
-			inputs[i] = inputs[i].trim();
-			System.out.print(inputs[i] + " ~ ");
+		int option = scan.nextInt();
+		if(option == 1) {
+			System.out.println("Emplyee #6932-C please enter price, ticket number, origin, destination, and customer ID");
+			System.out.println("Please do not mess up.");
+			
+			
+			System.out.println("Please enter everything in one line, seperated by commas\n");
+			String[] inputs;
+			Scanner scan2 = new Scanner(System.in);
+			inputs = scan2.nextLine().trim().split(",");
+			System.out.println("\nYou entered: ");
+			for(int i = 0; i < inputs.length; i++) {
+				inputs[i] = inputs[i].trim();
+				System.out.print(inputs[i] + " ~ ");
+			}
+				
+			baseTicket theTicket = new baseTicket(Double.parseDouble(inputs[0]), Integer.parseInt(inputs[1]), inputs[2], inputs[3], inputs[4]);
+			System.out.println("\n");
+				
+			return theTicket;
+			}
+		else if(option == 2) {
+			System.out.println("Emplyee #6932-C please enter price, ticket number, origin, destination, customer ID, number of bags, and number of frequent flyer miles");
+			System.out.println("Please do not mess up.");
+			
+			
+			System.out.println("Please enter everything in one line, seperated by commas\n");
+			String[] inputs;
+			
+			inputs = scan.nextLine().trim().split(",");
+			System.out.println("\nYou entered: ");
+			for(int i = 0; i < inputs.length; i++) {
+				inputs[i] = inputs[i].trim();
+				System.out.print(inputs[i] + " ~ ");
+			}
+				
+			baseTicket theTicket = new businessClassTicket(Double.parseDouble(inputs[0]), Integer.parseInt(inputs[1]), inputs[2], inputs[3], inputs[4], Integer.parseInt(inputs[5]), Float.parseFloat(inputs[6]));
+			System.out.println("\n");
+				
+			return theTicket;
+			
+		}else {
+			System.out.println("You did not enter the correct option, try again");
+			return null;
+			
 		}
-		System.out.println("\n");
 		//baseTicket customerTicket = new baseTicket(Double.parseDouble(inputs[0]), Integer.parseInt(inputs[1]), inputs[2], inputs[3], inputs[4], true, Long.parseLong(inputs[6]), Long.parseLong(inputs[7]), Long.parseLong(inputs[8]), Long.parseLong(inputs[9]);
 		// we kind of need the date and time information to come in as a long, but then that means we would have to generate it as a long
 		// which would be kind of complicated

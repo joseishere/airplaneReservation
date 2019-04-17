@@ -51,6 +51,11 @@ public class baseTicket {
 		this.customerID = customerID;
 	}
 	
+	public String toString() {
+		return "Price: " + this.price + ", ticketNumber: " + this.ticketNumber +
+				", origin: " + this.origin + ", destination: " + this.destination + 
+				", customerID: " + this.customerID;
+	}
 	
 	
 	
