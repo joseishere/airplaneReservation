@@ -38,9 +38,16 @@ public class simpleMain {
 			case 1:
 				System.out.println("Here we could call a function to take in customer info to sell the ticket\n");
 				
-				while(sellTickets() != null) {
+				
+				
+				do {
+					
 					baseTicket tic = sellTickets();
 					ourList.add(tic);
+					
+				}while(sellTickets() != null); {
+					//baseTicket tic = sellTickets();
+					//ourList.add(tic);
 					
 				}
 				break;
