@@ -18,6 +18,9 @@ public class simpleMain {
 		
 		
 		LinkedList<baseTicket> ourList = new LinkedList<baseTicket>();
+		Stack<baseTicket> ourStack = new Stack<baseTicket>();
+		
+		
 		
 		
 		int option = 0;
@@ -43,6 +46,10 @@ public class simpleMain {
 				break;
 			case 2:
 				System.out.println("Here we would simply print out the full stack\n");
+				Stack<baseTicket> copyStack = (Stack<baseTicket>)ourStack.clone();
+				for(int i = 0; i < ourStack.size(); i++) {
+					System.out.println(copyStack.pop().toString());
+				}
 				break;
 			case 3:
 				System.out.println("Here we would print out the linkedlists that will hold our ticket objects\n");
@@ -53,10 +60,10 @@ public class simpleMain {
 			case 4:
 				System.out.println("Here we can import time and have a function that will pop the stack and print out that pop every 2 seconds.");
 				System.out.println("Like this: ");
-				for(int i = 1; i < 4; i++) {
+				for(int i = 1; i < ourStack.size(); i++) {
 					try {
 						TimeUnit.SECONDS.sleep(1);
-						System.out.println("Customer[" + i + "] time to get on the plane");
+						System.out.println(ourStack.pop().toString() + " time to get on the plane");
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -137,6 +144,7 @@ public class simpleMain {
 		// need to rethink this
 		
 	}
+	
 	
 	
 }
