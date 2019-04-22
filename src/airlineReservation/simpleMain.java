@@ -16,7 +16,7 @@ public class simpleMain {
 		System.out.println("Please remember to be kind and sweet to all of the customers today!\n");
 		System.out.println("\t\tMessage from: John Dawn - CEO of Starship Airlines");
 		
-		
+		Queue<baseTicket> ourQueue = new LinkedList<baseTicket>();
 		LinkedList<baseTicket> ourList = new LinkedList<baseTicket>();
 		Stack<baseTicket> ourStack = new Stack<baseTicket>();
 		
@@ -28,9 +28,11 @@ public class simpleMain {
 			System.out.println("What would you like to do employee #6932-C ?");
 			System.out.println("1. Sell Airplane Tickets\n"
 					+ "2. Check loading/unloading schedule\n"
-					+ "3. Call for loading\n"
-					+ "4. Call for unloading\n"
-					+ "5. Clock out\n");
+					+ "3. Call for loading [detailed]\n"
+					+ "4. Call for unloading[detailed]\n"
+					+ "5. Call for loading [simple]\n"
+					+ "6. Call for unloading [simple]\n"
+					+ "7. Clock out\n");
 			Scanner scan = new Scanner(System.in);
 			int employeeChoice = scan.nextInt();
 			
@@ -48,6 +50,7 @@ public class simpleMain {
 					}else {
 						ourList.add(tic);
 						ourStack.add(tic);
+						ourQueue.add(tic);
 					}
 					
 					
@@ -59,23 +62,29 @@ public class simpleMain {
 				}
 				break;
 			case 2:
-				System.out.println("Here we would simply print out the full stack\n");
-				Stack<baseTicket> copyStack = (Stack<baseTicket>)ourStack.clone();
-				for(int i = 0; i < ourStack.size(); i++) {
-					System.out.println(copyStack.pop().toString());
+				System.out.println("Here we would simply print out the full Queue\n");
+//				Stack<baseTicket> copyStack = (Stack<baseTicket>)ourStack.clone();
+//				for(int i = 0; i < ourStack.size(); i++) {
+//					System.out.println(copyStack.pop().toString());
+//				}
+				Iterator iter = ourQueue.iterator();
+				while(iter.hasNext()) {
+					System.out.println(iter.next().toString());
 				}
+				
 				break;
 			case 3:
 				System.out.println("Here we would print out the linkedlists that will hold our ticket objects\n");
 				for(int i = 0; i < ourList.size(); i++) {
 					try {
-						TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(5);
 						System.out.println(ourList.get(i).toString() + " time to get on the plane");
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
+				System.out.println();
 				break;
 			case 4:
 				System.out.println("Here we can import time and have a function that will pop the stack and print out that pop every 2 seconds.");
@@ -83,7 +92,7 @@ public class simpleMain {
 				int originalSize = ourStack.size();
 				for(int i = 0; i < originalSize; i++) {
 					try {
-						TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(5);
 						System.out.println(ourStack.pop().toString() + " time to get off the plane");
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
@@ -93,6 +102,37 @@ public class simpleMain {
 				System.out.println();
 				break;
 			case 5:
+				System.out.println("Here we would print out the linkedlists that will hold our ticket objects\n");
+				for(int i = 0; i < ourList.size(); i++) {
+					try {
+						TimeUnit.SECONDS.sleep(5);
+						System.out.println(ourList.get(i).toStrings() + " time to get on the plane");
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				System.out.println();
+				break;
+			
+				
+			case 6:
+				System.out.println("Here we can import time and have a function that will pop the stack and print out that pop every 2 seconds.");
+				System.out.println("Like this: ");
+				int originalSize2 = ourStack.size();
+				for(int i = 0; i < originalSize2; i++) {
+					try {
+						TimeUnit.SECONDS.sleep(5);
+						System.out.println(ourStack.pop().toStrings() + " time to get off the plane");
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				System.out.println();
+				break;
+			
+			case 7:
 				System.out.println("All you humans are the same, the only one that works as hard as I do is John Dawn - CEO of Starship Airlines");
 				System.out.println("Enjoy your rest employee #6932-C\n");
 				option = 1;
@@ -111,11 +151,16 @@ public class simpleMain {
 	
 	public static baseTicket sellTickets() {
 		System.out.println("Employee #6932-C, is this a coach or business class ticket?");
-		System.out.println("Enter 1 for coach, and 2 for business class");
+		System.out.println("Enter 1 for coach, and 2 for business class, and 3 to exit.");
 		Scanner scan = new Scanner(System.in);
 		int option = scan.nextInt();
 		if(option == 1) {
-			System.out.println("Emplyee #6932-C please enter price, ticket number, origin, destination, and customer ID");
+			System.out.println("Emplyee #6932-C please enter the following:"
+					+ "\n\tprice, "
+					+ "\n\tticket number,"
+					+ "\n\torigin, "
+					+ "\n\tdestination, "
+					+ "\n\tand customer ID");
 			System.out.println("Please do not mess up.");
 			
 			
@@ -136,6 +181,14 @@ public class simpleMain {
 			}
 		else if(option == 2) {
 			System.out.println("Emplyee #6932-C please enter price, ticket number, origin, destination, customer ID, number of bags, and number of frequent flyer miles");
+			System.out.println("Emplyee #6932-C please enter the following:"
+					+ "\n\tprice, "
+					+ "\n\tticket number,"
+					+ "\n\torigin, "
+					+ "\n\tdestination, "
+					+ "\n\tand customer ID, "
+					+ "\n\tnumber of bags, "
+					+ "\n\tand number of frequent flyer miles");
 			System.out.println("Please do not mess up.");
 			
 			

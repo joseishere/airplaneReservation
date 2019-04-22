@@ -57,6 +57,9 @@ public class baseTicket {
 				", customerID: " + this.customerID;
 	}
 	
+	public String toStrings() {
+		return "customerID: " + this.customerID;
+	}
 	
 	
 	
