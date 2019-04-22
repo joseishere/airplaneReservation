@@ -28,8 +28,8 @@ public class simpleMain {
 			System.out.println("What would you like to do employee #6932-C ?");
 			System.out.println("1. Sell Airplane Tickets\n"
 					+ "2. Check loading/unloading schedule\n"
-					+ "3. View all tickets sold\n"
-					+ "4. Call for loading/unloading\n"
+					+ "3. Call for loading\n"
+					+ "4. Call for unloading\n"
 					+ "5. Clock out\n");
 			Scanner scan = new Scanner(System.in);
 			int employeeChoice = scan.nextInt();
@@ -68,7 +68,13 @@ public class simpleMain {
 			case 3:
 				System.out.println("Here we would print out the linkedlists that will hold our ticket objects\n");
 				for(int i = 0; i < ourList.size(); i++) {
-					System.out.println(ourList.get(i).toString());
+					try {
+						TimeUnit.SECONDS.sleep(1);
+						System.out.println(ourList.get(i).toString() + " time to get on the plane");
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				break;
 			case 4:
@@ -78,7 +84,7 @@ public class simpleMain {
 				for(int i = 0; i < originalSize; i++) {
 					try {
 						TimeUnit.SECONDS.sleep(1);
-						System.out.println(ourStack.pop().toString() + " time to get on the plane");
+						System.out.println(ourStack.pop().toString() + " time to get off the plane");
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -134,16 +140,16 @@ public class simpleMain {
 			
 			
 			System.out.println("Please enter everything in one line, seperated by commas\n");
-			String[] inputs;
-			
-			inputs = scan.nextLine().trim().split(",");
+			String[] inputs2;
+			Scanner scan3 = new Scanner(System.in);
+			inputs2 = scan3.nextLine().trim().split(",");
 			System.out.println("\nYou entered: ");
-			for(int i = 0; i < inputs.length; i++) {
-				inputs[i] = inputs[i].trim();
-				System.out.print(inputs[i] + " ~ ");
+			for(int i = 0; i < inputs2.length; i++) {
+				inputs2[i] = inputs2[i].trim();
+				System.out.print(inputs2[i] + " ~ ");
 			}
 				
-			baseTicket theTicket = new businessClassTicket(Double.parseDouble(inputs[0]), Integer.parseInt(inputs[1]), inputs[2], inputs[3], inputs[4], Integer.parseInt(inputs[5]), Float.parseFloat(inputs[6]));
+			baseTicket theTicket = new businessClassTicket(Double.parseDouble(inputs2[0]), Integer.parseInt(inputs2[1]), inputs2[2], inputs2[3], inputs2[4], Integer.parseInt(inputs2[5]), Float.parseFloat(inputs2[6]));
 			System.out.println("\n");
 				
 			return theTicket;
