@@ -43,9 +43,16 @@ public class simpleMain {
 				do {
 					
 					baseTicket tic = sellTickets();
-					ourList.add(tic);
+					if(tic == null) {
+						break;
+					}else {
+						ourList.add(tic);
+						ourStack.add(tic);
+					}
 					
-				}while(sellTickets() != null); {
+					
+					
+				}while(ourList.size() > 0); {
 					//baseTicket tic = sellTickets();
 					//ourList.add(tic);
 					
@@ -67,7 +74,7 @@ public class simpleMain {
 			case 4:
 				System.out.println("Here we can import time and have a function that will pop the stack and print out that pop every 2 seconds.");
 				System.out.println("Like this: ");
-				for(int i = 1; i < ourStack.size(); i++) {
+				for(int i = 0; i < ourStack.size(); i++) {
 					try {
 						TimeUnit.SECONDS.sleep(1);
 						System.out.println(ourStack.pop().toString() + " time to get on the plane");
