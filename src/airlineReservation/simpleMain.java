@@ -74,7 +74,8 @@ public class simpleMain {
 			case 4:
 				System.out.println("Here we can import time and have a function that will pop the stack and print out that pop every 2 seconds.");
 				System.out.println("Like this: ");
-				for(int i = 0; i < ourStack.size(); i++) {
+				int originalSize = ourStack.size();
+				for(int i = 0; i < originalSize; i++) {
 					try {
 						TimeUnit.SECONDS.sleep(1);
 						System.out.println(ourStack.pop().toString() + " time to get on the plane");
