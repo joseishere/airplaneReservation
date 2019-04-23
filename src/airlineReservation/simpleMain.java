@@ -60,6 +60,10 @@ public class simpleMain {
 				break;
 			case 2:
 				System.out.println("Passenger Schedule");
+				if(ourList.size() == 0) {
+					System.out.println("Nobody is on your plane(s), sell more tickets!\n");
+					break;
+				}
 //				Stack<baseTicket> copyStack = (Stack<baseTicket>)ourStack.clone();
 //				for(int i = 0; i < ourStack.size(); i++) {
 //					System.out.println(copyStack.pop().toString());
