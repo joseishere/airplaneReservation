@@ -9,8 +9,6 @@ public class baseTicket {
 	private String destination;
 	private String customerID;
 	
-	
-	
 	public baseTicket(double price, int ticketNumber, String origin, String destination,
 			String customerID) {
 		
@@ -52,15 +50,12 @@ public class baseTicket {
 	}
 	
 	public String toString() {
-		return "Price: " + this.price + ", ticketNumber: " + this.ticketNumber +
-				", origin: " + this.origin + ", destination: " + this.destination + 
-				", customerID: " + this.customerID;
+		return "Price: " + this.price + ", Ticket#: " + this.ticketNumber +
+				", Origin: " + this.origin.toUpperCase() + ", Destination: " + this.destination.toUpperCase() + 
+				", CustomerID: " + this.customerID.toUpperCase();
 	}
 	
 	public String toStrings() {
-		return "customerID: " + this.customerID;
-	}
-	
-	
-	
+		return this.customerID.toUpperCase();
+	}	
 }

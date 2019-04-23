@@ -14,7 +14,7 @@ public class simpleMain {
 		
 		System.out.println("\nWelcome employee #6932-C");
 		System.out.println("Please remember to be kind and sweet to all of the customers today!\n");
-		System.out.println("\t\tMessage from: John Dawn - CEO of Starship Airlines");
+		System.out.println("\t\tMessage from: John Dawn - CEO of Starship Airlines\n");
 		
 		Queue<baseTicket> ourQueue = new LinkedList<baseTicket>();
 		LinkedList<baseTicket> ourList = new LinkedList<baseTicket>();
@@ -28,22 +28,18 @@ public class simpleMain {
 			System.out.println("What would you like to do employee #6932-C ?");
 			System.out.println("1. Sell Airplane Tickets\n"
 					+ "2. Check loading/unloading schedule\n"
-					+ "3. Call for loading [detailed]\n"
-					+ "4. Call for unloading[detailed]\n"
+					+ "3. Call for loading\n"
+					+ "4. Call for unloading\n"
 					+ "5. Call for loading [simple]\n"
 					+ "6. Call for unloading [simple]\n"
-					+ "7. Clock out\n");
+					+ "7. Clock out\n ");
 			Scanner scan = new Scanner(System.in);
 			int employeeChoice = scan.nextInt();
 			
 			switch(employeeChoice) {
 			case 1:
-				System.out.println("Here we could call a function to take in customer info to sell the ticket\n");
-				
-				
-				
+				System.out.println("Ticket Sales\n");
 				do {
-					
 					baseTicket tic = sellTickets();
 					if(tic == null) {
 						break;
@@ -60,9 +56,10 @@ public class simpleMain {
 					//ourList.add(tic);
 					
 				}
+				//scan.close();
 				break;
 			case 2:
-				System.out.println("Here we would simply print out the full Queue\n");
+				System.out.println("Passenger Schedule");
 //				Stack<baseTicket> copyStack = (Stack<baseTicket>)ourStack.clone();
 //				for(int i = 0; i < ourStack.size(); i++) {
 //					System.out.println(copyStack.pop().toString());
@@ -71,65 +68,84 @@ public class simpleMain {
 				while(iter.hasNext()) {
 					System.out.println(iter.next().toString());
 				}
-				
+				System.out.println();
 				break;
 			case 3:
-				System.out.println("Here we would print out the linkedlists that will hold our ticket objects\n");
+				
+				if(ourList.size() == 0) {
+					System.out.println("Nobody is on your plane(s), sell more tickets!\n");
+				}
+				
+				System.out.println("Passengers, Please board the Plane:");
 				for(int i = 0; i < ourList.size(); i++) {
 					try {
-						TimeUnit.SECONDS.sleep(5);
-						System.out.println(ourList.get(i).toString() + " time to get on the plane");
+						TimeUnit.SECONDS.sleep(2);
+						System.out.println(ourList.get(i).toString() + "\nNow Boarding\n");
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
-				System.out.println();
+					if(ourList.size()==ourList.size() && ourList.size()!=0)
+						System.out.println("Your plane(s) have boarded!\n");
 				break;
+				
 			case 4:
-				System.out.println("Here we can import time and have a function that will pop the stack and print out that pop every 2 seconds.");
-				System.out.println("Like this: ");
-				int originalSize = ourStack.size();
-				for(int i = 0; i < originalSize; i++) {
-					try {
-						TimeUnit.SECONDS.sleep(5);
-						System.out.println(ourStack.pop().toString() + " time to get off the plane");
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+				//System.out.println("Passengers Deboarding");
+				//System.out.println("Like this: \n");
+				if(ourStack.size() == 0) 
+					System.out.println("Nobody is on your plane(s), sell more tickets!\n");
+				if(ourStack.size() >= 1) {
+					System.out.println("Passengers Deboarding");
+					int originalSize = ourStack.size();
+					for(int i = 0; i < originalSize; i++) {
+						try {
+							TimeUnit.SECONDS.sleep(1);
+							System.out.println(ourStack.pop().toString() + " \nHas Deboarded\n");
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					if (ourStack.size() == 0)
+						System.out.println("Your plane(s) has completely deboarded.");
+						System.out.println();
 					}
 				}
-				System.out.println();
 				break;
 			case 5:
-				System.out.println("Here we would print out the linkedlists that will hold our ticket objects\n");
-				for(int i = 0; i < ourList.size(); i++) {
-					try {
-						TimeUnit.SECONDS.sleep(5);
-						System.out.println(ourList.get(i).toStrings() + " time to get on the plane");
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+				if(ourList.size() == 0) 
+					System.out.println("Nobody is on your plane(s), sell more tickets!\n");
+				if(ourList.size() >=1) {
+					System.out.println("Passenger Boarding\n");
+					for(int i = 0; i < ourList.size(); i++) {
+						try {
+							TimeUnit.SECONDS.sleep(2);
+							System.out.println("Final Call for Passenger " + ourList.get(i).toStrings());
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 					}
 				}
-				System.out.println();
+				if(ourList.size()==ourList.size() && ourList.size()!=0)
+					System.out.println("Your plane(s) have boarded!\n");
 				break;
-			
-				
 			case 6:
-				System.out.println("Here we can import time and have a function that will pop the stack and print out that pop every 2 seconds.");
-				System.out.println("Like this: ");
-				int originalSize2 = ourStack.size();
-				for(int i = 0; i < originalSize2; i++) {
-					try {
-						TimeUnit.SECONDS.sleep(5);
-						System.out.println(ourStack.pop().toStrings() + " time to get off the plane");
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+				if(ourStack.size() == 0) 
+					System.out.println("Nobody is on your plane(s), sell more tickets!\n");
+				if(ourStack.size() >= 1) {
+					System.out.println("Passenger Deboarding\n");
+					int originalSize2 = ourStack.size();
+					for(int i = 0; i < originalSize2; i++) {
+						try {
+							TimeUnit.SECONDS.sleep(2);
+							System.out.println("We've arrived, " + ourStack.pop().toStrings() + " please disembark.");
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}	
+						if (ourStack.size() == 0)
+							System.out.println("Your Plane(s) has completely deboarded.\n");
 					}
 				}
-				System.out.println();
+				//ourStack.empty();
 				break;
 			
 			case 7:
@@ -150,21 +166,18 @@ public class simpleMain {
 	
 	
 	public static baseTicket sellTickets() {
-		System.out.println("Employee #6932-C, is this a coach or business class ticket?");
-		System.out.println("Enter 1 for coach, and 2 for business class, and 3 to exit.");
+		System.out.println("Employee #6932-C, enter the type of Ticket Sale.");
+		System.out.println("1. Coach\n2. Business Class\n3. Exit Ticket Sale");
 		Scanner scan = new Scanner(System.in);
 		int option = scan.nextInt();
 		if(option == 1) {
-			System.out.println("Emplyee #6932-C please enter the following:"
-					+ "\n\tprice, "
-					+ "\n\tticket number,"
-					+ "\n\torigin, "
-					+ "\n\tdestination, "
-					+ "\n\tand customer ID");
+			System.out.println("\tPlease enter Price, "
+					+ "\n\tTicket Number, "
+					+ "\n\tOrigin, "
+					+ "\n\tDestination, "
+					+ "\n\tand Customer ID.");
 			System.out.println("Please do not mess up.");
-			
-			
-			System.out.println("Please enter everything in one line, seperated by commas\n");
+			System.out.println("Please enter everything in one line, seperated by commas.\n");
 			String[] inputs;
 			Scanner scan2 = new Scanner(System.in);
 			inputs = scan2.nextLine().trim().split(",");
@@ -176,19 +189,19 @@ public class simpleMain {
 				
 			baseTicket theTicket = new baseTicket(Double.parseDouble(inputs[0]), Integer.parseInt(inputs[1]), inputs[2], inputs[3], inputs[4]);
 			System.out.println("\n");
-				
+			//scan.close();
+			//scan2.close();	
 			return theTicket;
+			
 			}
 		else if(option == 2) {
-			System.out.println("Emplyee #6932-C please enter price, ticket number, origin, destination, customer ID, number of bags, and number of frequent flyer miles");
-			System.out.println("Emplyee #6932-C please enter the following:"
-					+ "\n\tprice, "
-					+ "\n\tticket number,"
-					+ "\n\torigin, "
-					+ "\n\tdestination, "
-					+ "\n\tand customer ID, "
-					+ "\n\tnumber of bags, "
-					+ "\n\tand number of frequent flyer miles");
+			System.out.println("\tPlease enter Price, "
+					+ "\n\tTicket Number, "
+					+ "\n\tOrigin, "
+					+ "\n\tDestination, "
+					+ "\n\tCustomer ID, "
+					+ "\n\tNumber of Bags, "
+					+ "\n\tand Frequent Flyer Miles Earned");
 			System.out.println("Please do not mess up.");
 			
 			
@@ -204,10 +217,13 @@ public class simpleMain {
 				
 			baseTicket theTicket = new businessClassTicket(Double.parseDouble(inputs2[0]), Integer.parseInt(inputs2[1]), inputs2[2], inputs2[3], inputs2[4], Integer.parseInt(inputs2[5]), Float.parseFloat(inputs2[6]));
 			System.out.println("\n");
-				
+			//scan3.close();	
 			return theTicket;
 			
-		}else {
+		}
+		else if (option == 3)
+			return null;
+		else {
 			System.out.println("You did not enter the correct option, try again");
 			return null;
 			
