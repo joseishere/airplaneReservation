@@ -27,7 +27,7 @@ public class simpleMain {
 		while(option == 0) {
 			System.out.println("What would you like to do employee #6932-C ?");
 			System.out.println("1. Sell Airplane Tickets\n"
-					+ "2. Check loading/unloading schedule\n"
+					+ "2. Check all tickets\n"
 					+ "3. Call for loading\n"
 					+ "4. Call for unloading\n"
 					+ "5. Call for loading [simple]\n"
